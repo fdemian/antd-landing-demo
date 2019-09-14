@@ -1,3 +1,11 @@
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faSignInAlt as loginIcon,
+  faUserPlus as registerIcon
+} from '@fortawesome/free-solid-svg-icons';
+
+
 const dataSource = {
   wrapper: { className: 'header3 home-page-wrapper' },
   page: { className: 'home-page' },
@@ -14,7 +22,12 @@ const dataSource = {
         className: 'header3-item',
         children: {
           href: '#',
-          children: [{ children: 'Login', name: 'text' }],
+          children: [
+            { children:
+              <span><FontAwesomeIcon icon={loginIcon} />&nbsp;Login</span>, 
+              name: 'react'
+            }
+          ],
         },
       },
       {
@@ -22,7 +35,12 @@ const dataSource = {
         className: 'header3-item',
         children: {
           href: '#',
-          children: [{ children: 'Register', name: 'text' }],
+          children: [
+           { children:
+             <span><FontAwesomeIcon icon={registerIcon} />&nbsp;Register</span>,
+             name: 'react'
+           }
+          ],
         },
       }
     ],
