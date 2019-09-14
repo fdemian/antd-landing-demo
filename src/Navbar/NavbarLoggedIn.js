@@ -11,60 +11,68 @@ import './Navbar.css';
 
 const { Item, SubMenu } = Menu;
 
+const subItems = [
+  {
+    subItem: true,
+    name: 'image0',
+    className: 'item-image',
+    render: <img src={'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg'} />,
+  },
+  {
+    subItem: true,
+    name: 'title',
+    className: 'item-title',
+    render: 'Ant Design',
+  },
+  {
+    subItem: true,
+    name: 'content',
+    className: 'item-content',
+    render:'企业级 UI 设计体系',
+  }
+];
+
 const logoSrc = 'https://gw.alipayobjects.com/zos/basement_prod/b30cdc2a-d91c-4c78-be9c-7c63b308d4b3.svg';
 const navData = [
   {
     name: 'item1',
     className: 'header3-item',
     render: <a href="#"><FontAwesomeIcon icon={loginIcon} />&nbsp;Login</a>,
+    isMenu: false
   },
   {
     name: 'item2',
     className: '',
-    render:<a href="#"><FontAwesomeIcon icon={registerIcon} />&nbsp;Register</a>,
+    render: <a href="#"><FontAwesomeIcon icon={registerIcon} />&nbsp;Register</a>,
+    children: subItems,
+    isMenu: true
   }
 ];
 
 const navChildren = navData.map((item) => {
-  const { children: a, subItem, ...itemProps } = item;
-  console.log(item);
-  console.log(":::::::::");
-  if (subItem) {
-    return (
+
+  const { children, isMenu, subItem } = item;
+
+  if(isMenu){
+    return(
     <SubMenu
       key={item.name}
       title={
-        <div
-          {...a}
-          className={`header3-item-block ${a.className}`.trim()}
-        >
-          {a.children.map(getChildrenToRender)}
+        <div className={`header3-item-block ${item.className}`.trim()}>
+          {item.render()}
         </div>
       }
       popupClassName="header3-item-child"
     >
-      {subItem.map(($item, ii) => {
-        const { children: childItem } = $item;
-        const child = childItem.href ? (
-          <a {...childItem}>
-            {childItem.children.map(getChildrenToRender)}
-          </a>
-        ) : (
-          <div {...childItem}>
-            {childItem.children.map(getChildrenToRender)}
-          </div>
-        );
-
+     {subItem.map((sub) => {
         return (
-        <Item key={item.name} className={item.className}>
-          {child}
+        <Item key={sub.name} className={sub.className}>
+          {sub.render}
         </Item>
         );
-
-      })}
+     })}
     </SubMenu>
-    );
-
+    )
   }
 
   return (
