@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
-import { isImg } from '../utils';
 import dataSource from './dataSource';
 import './Banner.css';
 

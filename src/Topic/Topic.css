@@ -1,0 +1,18 @@
+.topic-container {
+  margin: 50px;
+}
+
+.topic-heading-text{
+  text-align: center;
+  color: darkgray;
+}
+
+.topic-stats-container {
+  margin-left: 40%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.topic-category-heading {
+  margin-left: 44%;
+}

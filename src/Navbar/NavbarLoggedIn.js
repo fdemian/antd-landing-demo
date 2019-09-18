@@ -3,47 +3,58 @@ import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faSignInAlt as loginIcon,
-  faUserPlus as registerIcon
+  faBell as bellIcon,
+  faEnvelope as envelopeIcon
 } from '@fortawesome/free-solid-svg-icons';
-import { getChildrenToRender } from '../utils';
 import './Navbar.css';
 
 const { Item, SubMenu } = Menu;
 
+const userAvatar = "https://gw.alipayobjects.com/zos/rmsportal/SlFgHDtOTLzccvFrQHLg.png";
 const subItems = [
   {
     subItem: true,
     name: 'image0',
     className: 'item-image',
-    render: <img src={'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg'} />,
+    render: <img src='https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg' alt="logo antd" />,
   },
   {
     subItem: true,
     name: 'title',
     className: 'item-title',
-    render: 'Ant Design',
+    render: <p>Ant Design</p>,
   },
   {
     subItem: true,
     name: 'content',
     className: 'item-content',
-    render:'企业级 UI 设计体系',
+    render:<p>企业级 UI 设计体系</p>,
   }
 ];
 
 const logoSrc = 'https://gw.alipayobjects.com/zos/basement_prod/b30cdc2a-d91c-4c78-be9c-7c63b308d4b3.svg';
 const navData = [
   {
-    name: 'item1',
+    name: 'messages',
     className: 'header3-item',
-    render: <a href="#"><FontAwesomeIcon icon={loginIcon} />&nbsp;Login</a>,
-    isMenu: false
+    render: <FontAwesomeIcon icon={envelopeIcon} />,
+    isMenu: true,
+    children: subItems
+  },
+  {
+    name: 'notifications',
+    className: 'header3-item',
+    render: <FontAwesomeIcon icon={bellIcon} />,
+    isMenu: true,
+    children: subItems
   },
   {
     name: 'item2',
     className: '',
-    render: <a href="#"><FontAwesomeIcon icon={registerIcon} />&nbsp;Register</a>,
+    render: <span>
+              <img src={userAvatar} width={40} height={40} alt="user avatar antd" />
+              &nbsp; <span style={{fontWeight:'700'}}>User Name</span>
+            </span>,
     children: subItems,
     isMenu: true
   }
@@ -51,7 +62,7 @@ const navData = [
 
 const navChildren = navData.map((item) => {
 
-  const { children, isMenu, subItem } = item;
+  const { children, isMenu } = item;
 
   if(isMenu){
     return(
@@ -59,12 +70,12 @@ const navChildren = navData.map((item) => {
       key={item.name}
       title={
         <div className={`header3-item-block ${item.className}`.trim()}>
-          {item.render()}
+          {item.render}
         </div>
       }
       popupClassName="header3-item-child"
     >
-     {subItem.map((sub) => {
+     {children.map((sub) => {
         return (
         <Item key={sub.name} className={sub.className}>
           {sub.render}
@@ -101,7 +112,7 @@ const Navbar = (props) => {
       </TweenOne>
       <TweenOne
         className='header3-menu'
-        animation={null}
+        animation={{ x: 100, type: 'from', ease: 'easeOutQuad', repeat: 1 }}
         moment={300}
         reverse={false}
       >

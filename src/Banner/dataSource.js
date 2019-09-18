@@ -1,4 +1,3 @@
-import React from 'react';
 import bgIcon from './motion_icon.png';
 
 const dataSource = {
