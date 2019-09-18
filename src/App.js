@@ -7,6 +7,7 @@ import Footer from './Footer/Footer';
 import Topic from './Topic/Topic';
 
 import 'antd/dist/antd.css';
+import 'ant-design-pro/dist/ant-design-pro.css';
 
 const App = () => {
   return (
