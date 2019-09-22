@@ -1,6 +1,13 @@
 import React from 'react';
-import { List, Avatar, Icon, Statistic, Row, Col } from 'antd';
+import { List, Avatar, Dropdown, Menu, Button } from 'antd';
 import TopicHeading from './TopicHeading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+faThumbsUp as thumbsUp,
+faReply as replyIcon,
+faQuoteLeft as quote,
+faSortDown as arrowDownIcon
+} from '@fortawesome/free-solid-svg-icons';
 import './Topic.css';
 
 const listData = [];
@@ -9,18 +16,18 @@ for (let i = 0; i < 23; i++) {
     href: 'http://ant.design',
     title: `User ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+    description: 'Pantha rei.',
+    content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
   });
 }
 
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
+const replyMenu = (
+  <Menu onClick={null}>
+    <Menu.Item key="1">
+      <FontAwesomeIcon icon={replyIcon} />
+       &nbsp; Reply as new topic
+    </Menu.Item>
+  </Menu>
 );
 
 
@@ -47,17 +54,22 @@ const Topic = () => {
       <List.Item
          key={item.title}
          actions={[
-           <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-           <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-           <IconText type="message" text="2" key="list-vertical-message" />,
+           <span>
+             <FontAwesomeIcon icon={thumbsUp} style={{ marginRight: 8 }} />
+              10
+           </span>,
+           <Dropdown.Button
+               overlay={replyMenu}
+               icon={<FontAwesomeIcon icon={arrowDownIcon} />}
+           >
+              <FontAwesomeIcon icon={replyIcon} />
+               &nbsp; Reply
+           </Dropdown.Button>,
+           <Button>
+              <FontAwesomeIcon icon={quote} />
+              &nbsp; Quote
+           </Button>
          ]}
-         extra={
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-          />
-         }
         >
           <List.Item.Meta
             avatar={<Avatar src={item.avatar} />}

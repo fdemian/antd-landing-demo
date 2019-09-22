@@ -7,12 +7,20 @@
   color: darkgray;
 }
 
-.topic-stats-container {
+.topic-stats-container{
   margin-left: 40%;
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
+.topic-actions-container {
+  margin-left: 33%;
+}
+
 .topic-category-heading {
   margin-left: 44%;
+}
+
+.topic-heading-button {
+  margin-left: 10px !important;
 }
