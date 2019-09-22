@@ -3,8 +3,8 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar/NavbarLoggedIn';
 import Footer from './Footer/Footer';
-//import Banner from './Banner/Banner';
-import Topic from './Topic/Topic';
+import Banner from './Banner/Banner';
+import Stories from './Stories/Stories';
 
 import 'antd/dist/antd.css';
 import 'ant-design-pro/dist/ant-design-pro.css';
@@ -13,7 +13,7 @@ const App = () => {
   return (
   <div>
     <Navbar />
-    <Topic />
+    <Stories />
     <Footer />
   </div>
   );
