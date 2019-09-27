@@ -6,6 +6,14 @@
 
 .stories-container {
   width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 18%;
+  margin-bottom: 20%;
+}
+
+.story-summary {
+  margin-left: 47px;
+}
+
+.ant-list-item-main {
+  margin-top: 10px;
 }

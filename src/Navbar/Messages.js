@@ -37,7 +37,7 @@ const Messages = (props) => {
     count={messages.length}
     onItemClick={onItemClick}
     onClear={clearFn}
-    popupAlign={{ offset: [-40, -20] }}
+    popupAlign={{ offset: [-1000, -70] }}
   >
     <NoticeIcon.Tab
       list={messages}

@@ -83,6 +83,29 @@
 	 margin-left: 46px;
 }
 
+.account-submenu {
+	 min-width: 200px;
+	 width: 200px;
+}
+
+.ant-menu-sub .ant-menu-item {
+	padding-right: 24px !important;
+	padding-left: 24px !important;
+	overflow: hidden !important;
+	cursor: pointer !important;
+	height: 27px !important;
+	overflow: auto !important;
+	font-size: 18px !important;
+}
+
+.blog-title {
+  vertical-align: bottom;
+}
+
+.blog-title, .blog-title-img {
+	display: inline;
+}
+
 @media screen and (max-width: 767px) {
 	.-logo {
 		 z-index: 101;

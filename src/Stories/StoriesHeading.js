@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StoriesHeading = ({}) => {
+const StoriesHeading = () => {
   return (
   <div>
     <h1 className="story-heading-text">Stories</h1>

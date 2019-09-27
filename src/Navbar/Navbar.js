@@ -7,11 +7,12 @@ import {
   faUserPlus as registerIcon
 } from '@fortawesome/free-solid-svg-icons';
 import { getChildrenToRender } from '../utils';
+import logoSrc from '../logo.svg';
 import './Navbar.css';
 
 const { Item, SubMenu } = Menu;
 
-const logoSrc = 'https://gw.alipayobjects.com/zos/basement_prod/b30cdc2a-d91c-4c78-be9c-7c63b308d4b3.svg';
+
 const navData = [
   {
     name: 'item1',
@@ -27,8 +28,7 @@ const navData = [
 
 const navChildren = navData.map((item) => {
   const { children: a, subItem, ...itemProps } = item;
-  console.log(item);
-  console.log(":::::::::");
+
   if (subItem) {
     return (
     <SubMenu
@@ -89,7 +89,16 @@ const Navbar = (props) => {
         animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
         className='header3-logo'
       >
-        <img width="100%" src={logoSrc} alt="Logo" />
+        <img
+          className="blog-title-img"
+          width={40}
+          height={40}
+          alt="Logo"
+          src={logoSrc}
+         />
+        <h2 className="blog-title">
+          Morpheus
+        </h2>
       </TweenOne>
       <TweenOne
         className='header3-menu'
